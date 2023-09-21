@@ -1,0 +1,2 @@
+export const MAX_REQUESTS_AMOUNT = 10;
+export const BLOCKING_INTERVAL_IN_SECONDS = 60;
