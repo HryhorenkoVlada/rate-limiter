@@ -6,6 +6,9 @@ import { MAX_REQUESTS_AMOUNT, BLOCKING_INTERVAL_IN_SECONDS } from './constants';
 
 const app = express();
 
+// NOTE: this solution adds rates limits on application layer,
+// app is still vulnerable to low-layer attacks (like flood attacks)
+// to prevent this, we need to use something like DDoS Protection Services
 app.use(
 	rateLimitMiddleware({
 		maxRequests: MAX_REQUESTS_AMOUNT,

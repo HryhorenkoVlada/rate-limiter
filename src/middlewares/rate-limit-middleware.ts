@@ -4,7 +4,7 @@ import { ClientData } from '../types/clientData';
 import { RateLimitOptions } from '../types/rateLimitOptions';
 
 export function rateLimitMiddleware({ maxRequests, interval }: RateLimitOptions) {
-	// Redis client can be used here to store the clients' data
+	// NOTE: Using Redis will be a more appropriate solution to store and manage clients' data, especially when load balancer is used
 	const clients: Map<string, ClientData> = new Map();
 
 	return (req: Request, res: Response, next: NextFunction) => {
@@ -38,3 +38,5 @@ export function rateLimitMiddleware({ maxRequests, interval }: RateLimitOptions)
 		next();
 	};
 }
+
+// TODO: add Redis
